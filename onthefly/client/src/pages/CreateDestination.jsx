@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import '../css/CreateDestination.css'
 
-const CreateDestination = () => {
+const CreateDestination = ({api_url}) => {
 
     const { trip_id } = useParams()
     const [destination, setDestination] = useState({
@@ -37,7 +37,7 @@ const CreateDestination = () => {
                 body: JSON.stringify(destination)
             }
         
-            const response = await fetch('/api/destinations', options)
+            const response = await fetch(`${api_url}/api/destinations`, options)
             const data = await response.json()
             setDestination(data)
             return data.id

@@ -4,7 +4,7 @@ import ActivityBtn from '../components/ActivityBtn'
 import DestinationBtn from '../components/DestinationBtn'
 import '../css/TripDetails.css'
 
-const TripDetails = ( { data } ) => {
+const TripDetails = ( { data, api_url } ) => {
 
     const { id } = useParams()
     const [activities, setActivities] = useState([])
@@ -39,13 +39,13 @@ const TripDetails = ( { data } ) => {
 
     useEffect(() => {
         const fetchActivities = async () => {
-            const response = await fetch('/api/activities/' + id)
+            const response = await fetch(`${api_url}/api/activities/${id}`)
             const data = await response.json()
             setActivities(data)
         }
 
         const fetchDestinations = async () => {
-            const response = await fetch('/api/trips-destinations/destinations/' + id)
+            const response = await fetch(`${api_url}/api/trips-destinations/destinations/${id}`)
             const data = await response.json()
             setDestinations(data)
         }

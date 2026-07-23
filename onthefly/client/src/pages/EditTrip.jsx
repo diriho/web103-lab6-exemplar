@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import '../css/EditTrip.css'
 
-const EditTrip = ( { data } ) => {
+const EditTrip = ( { data, api_url } ) => {
 
     const { id } = useParams()
     const [trip, setTrip] = useState({
@@ -54,7 +54,7 @@ const EditTrip = ( { data } ) => {
             body: JSON.stringify(trip)
         }
 
-        fetch('/api/trips/' + id, options)
+        fetch(`${api_url}/api/trips/${id}`, options)
         window.location.href = '/'
     }
 
