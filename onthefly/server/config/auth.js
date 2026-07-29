@@ -28,7 +28,7 @@ const verify = async (accessToken, refreshToken, profile, callback) => {
         // if the user is not found in the database, insert/create a new user and insert them in the users table
         if (!user){
             const insertResult = await pool.query(
-                `INSERT INTO users (githubid, username, avatarurl, access_token) VALUES ($1, $2, $3, $4) RETURNING *`,
+                `INSERT INTO users (githubid, username, avatarurl, accesstoken) VALUES ($1, $2, $3, $4) RETURNING *`,
                 [userData.githubId, userData.username, userData.avatarUrl, userData.accessToken]
             );
             const newUser = insertResult.rows[0];

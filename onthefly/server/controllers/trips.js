@@ -16,7 +16,7 @@ const createTrip = async (req, res) => {
      }
 
     catch (error) {
-        response.status(409).json( { error: error.message } )
+        res.status(409).json( { error: error.message } )
         console.log('Error:', error.message)
     }
 }
