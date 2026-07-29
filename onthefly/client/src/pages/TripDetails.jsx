@@ -104,8 +104,6 @@ const TripDetails = ( { data, api_url } ) => {
             </div>
             
         </div>
-            
-
 
     )
 }
